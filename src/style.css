@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.container{
+    @apply flex items-center justify-center bg-slate-500 min-h-screen min-w-full
+}
+
+.card{
+    @apply flex flex-col bg-slate-100 rounded-lg w-[500px] h-[300px] space-y-6
+}
+
+.card-container-left, .card-right{
+    @apply flex flex-col space-y-2
+}
+
+.card-top{
+    @apply flex flex-row justify-evenly
+}

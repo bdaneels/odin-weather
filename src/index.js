@@ -11,9 +11,7 @@ const weatherHandler = (() => {
         let url = `https://api.weatherapi.com/v1/current.json?key=7a0c192880364739aaf80554231205&q=${string}`
         let response = await fetch(url, { mode: "cors" })
             let data = await response.json() 
-            console.log(data)
         let processdata = {
-            
             location: data.location.name,
             country: data.location.country,
             conditionText: data.current.condition.text,
@@ -40,4 +38,4 @@ const weatherHandler = (() => {
 })()
 
 
-weatherHandler.setWeather('stockholm')
+weatherHandler.setWeather('stockholm');

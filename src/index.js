@@ -10,12 +10,25 @@ const weatherHandler = (() => {
         try {
         let url = `https://api.weatherapi.com/v1/current.json?key=7a0c192880364739aaf80554231205&q=${string}`
         let response = await fetch(url, { mode: "cors" })
-        let data = await response.json()
-        let useableObject = await dataHandler.splitData(data)
-    
+            let data = await response.json() 
+            console.log(data)
+        let processdata = {
+            
+            location: data.location.name,
+            country: data.location.country,
+            conditionText: data.current.condition.text,
+            conditionUrl: data.current.condition.icon,
+            humidity: data.current.humidity,
+            tempC: data.current.temp_c,
+            tempF: data.current.temp_f,
+            uv: data.current.uv,
+            windDir: data.current.wind_dir
         }
-        catch {
-            console.log('no data response from server')
+           weatherObject = processdata
+            console.log(weatherObject)
+        }
+        catch(error) {
+         console.log(error)
         }
     }
 
@@ -26,25 +39,5 @@ const weatherHandler = (() => {
 
 })()
 
-
-
-const dataHandler = (() => {
-    
-    
-    async function splitData (object) {
-        let tempC = object.current.temp_c
-        let tempF = object.current.temp_f
-        let conditionString = object.condition.text
-        
-        console.log(object)
-        console.log('printTestcalled')
-    }
-    
-
-    return {
-        splitData
-    }
-
-  })();
 
 weatherHandler.setWeather('stockholm')

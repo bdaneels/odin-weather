@@ -15,5 +15,33 @@
 }
 
 .card-top{
-    @apply flex flex-row justify-evenly
+    @apply flex flex-row justify-evenly pt-8
+}
+
+.card-bottom{
+    @apply flex flex-col justify-center items-center
+}
+
+.search{
+    @apply flex justify-center items-center space-x-8 pt-6
+}
+
+
+.search-button {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+/* Styles for the SVG icon */
+.search-icon {
+    fill: #000;
+    transition: fill 0.3s ease;
+}
+
+/* Styles for the SVG icon when button is hovered */
+.search-button:hover .search-icon {
+    fill: #555;
 }

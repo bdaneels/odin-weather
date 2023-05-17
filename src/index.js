@@ -41,6 +41,16 @@ const weatherHandler = (() => {
 
 const domHandler = (() => {
 
+    function setSearch() {
+        let searchbtn = document.getElementsByClassName('search-button')[0]
+        searchbtn.addEventListener('click', () => {
+            let input = document.querySelector('input').value
+            weatherHandler.setWeather(input)
+
+            
+        })
+    }
+
     async function constructDom(object){
         let locationEl = document.getElementsByClassName('card-location')[0]
         locationEl.textContent = object.location
@@ -80,9 +90,11 @@ const domHandler = (() => {
         conditionImg.src = "http:" + object.conditionUrl
     }
 return{
-    constructDom
+    constructDom,
+    setSearch
 }
 
 })()
 
-weatherHandler.setWeather('stockholm');
+weatherHandler.setWeather('antwerp');
+domHandler.setSearch()
